@@ -40,61 +40,11 @@ python3 skills/ppt-master/scripts/project_manager.py validate <project_path>
 
 # Image tools
 python3 skills/ppt-master/scripts/analyze_images.py <project_path>/images
-python3 skills/ppt-master/scripts/image_gen.py "prompt" --aspect_ratio 16:9 --image_size 1K -o <project_path>/images
-
-# SVG quality check
-python3 skills/ppt-master/scripts/svg_quality_checker.py <project_path>
-
-# Post-processing pipeline (MUST run sequentially, one at a time — NEVER batch)
-python3 skills/ppt-master/scripts/total_md_split.py <project_path>
-# ✅ Confirm no errors before running the next command
-python3 skills/ppt-master/scripts/finalize_svg.py <project_path>
-# ✅ Confirm no errors before running the next command
-python3 skills/ppt-master/scripts/svg_to_pptx.py <project_path> -s final
-# Output: exports/<project_name>_<timestamp>.pptx + exports/<project_name>_<timestamp>_svg.pptx
-# Use --only native or --only legacy to generate just one version
+python3 skills/ppt-master/scripts/optimize_images.py <project_path>/images  # resize/compress images before embedding
 ```
 
-## Core Directories
+## Personal Notes
 
-- `skills/ppt-master/SKILL.md` — Main entry point and complete workflow
-- `skills/ppt-master/workflows/create-template.md` — Standalone template workflow
-- `skills/ppt-master/references/` — Role definitions and technical specifications
-- `skills/ppt-master/scripts/` — Tool scripts
-- `skills/ppt-master/scripts/docs/` — Topic-focused script docs (`conversion`, `project`, `svg-pipeline`, `image`, `troubleshooting`)
-- `skills/ppt-master/templates/` — Layout templates, chart templates, icon library
-- `examples/` — Example projects
-- `projects/` — User project workspace
-
-## SVG Technical Constraints
-
-**Banned features**: `mask` | `<style>` | `class` | external CSS | `<foreignObject>` | `textPath` | `@font-face` | `<animate*>` | `<script>` | `<iframe>` | `<symbol>`+`<use>` (`id` inside `<defs>` is a legitimate reference and is NOT banned)
-
-**Conditionally allowed**: `marker-start` / `marker-end` — the referenced `<marker>` must live in `<defs>`, use `orient="auto"`, and its shape must be a triangle (3-vertex closed path/polygon), diamond (4-vertex), or circle/ellipse. The converter maps these to native DrawingML `<a:headEnd>` / `<a:tailEnd>`. See `shared-standards.md` §1.1 for full constraints.
-
-**Conditionally allowed**: `clipPath` on `<image>` — the referenced `<clipPath>` must live in `<defs>` and contain a single shape child (circle, ellipse, rect with rx/ry, path, or polygon). The converter maps these to native DrawingML picture geometry (`<a:prstGeom>` or `<a:custGeom>`). Only supported on `<image>` elements. See `shared-standards.md` §1.2 for full constraints.
-
-**PPT compatibility alternatives**:
-
-| Banned | Alternative |
-|--------|-------------|
-| `rgba()` | `fill-opacity` / `stroke-opacity` |
-| `<g opacity>` | Set opacity on each child element individually |
-| `<image opacity>` | Overlay with a mask layer |
-
-## Canvas Format Quick Reference
-
-| Format | viewBox |
-|--------|---------|
-| PPT 16:9 | `0 0 1280 720` |
-| PPT 4:3 | `0 0 1024 768` |
-| Xiaohongshu (RED) | `0 0 1242 1660` |
-| WeChat Moments | `0 0 1080 1080` |
-| Story | `0 0 1080 1920` |
-
-## Post-processing Notes
-
-- **NEVER** use `cp` as a substitute for `finalize_svg.py`
-- **NEVER** export directly from `svg_output/` — MUST export from `svg_final/` (use `-s final`)
-- Do NOT add extra flags like `--only` to the post-processing commands
-- **NEVER** run the three post-processing steps in a single code block or single shell invocation
+<!-- Personal fork notes (not for upstream) -->
+- I primarily use this for 16:9 presentations; `--format ppt169` is the default I always want.
+- Reminder: run `optimize_images.py` before large decks to keep file sizes manageable.
