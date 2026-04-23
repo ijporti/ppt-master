@@ -40,11 +40,10 @@ python3 skills/ppt-master/scripts/project_manager.py validate <project_path>
 
 # Image tools
 python3 skills/ppt-master/scripts/analyze_images.py <project_path>/images
-python3 skills/ppt-master/scripts/optimize_images.py <project_path>/images  # resize/compress images before embedding
+python3 skills/ppt-master/scripts/compress_images.py <project_path>/images  # optional: reduce file size before export
 ```
 
 ## Personal Notes
 
-<!-- Personal fork notes (not for upstream) -->
-- I primarily use this for 16:9 presentations; `--format ppt169` is the default I always want.
-- Reminder: run `optimize_images.py` before large decks to keep file sizes manageable.
+- I primarily use this for 16:9 slides (`--format ppt169`); widescreen format works best for my use case.
+- Prefer running `validate` after `import-sources` to catch missing assets early.
