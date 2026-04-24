@@ -23,6 +23,11 @@ PPT Master is an AI-driven presentation generation system. Through multi-role co
 - Do NOT assume repository-local conventions such as `.worktrees/`, `tests/`, or mandatory branch setup unless the user explicitly requests them
 - If a generic coding skill conflicts with this repository's instructions, prioritize `skills/ppt-master/SKILL.md` and this file for work inside this repository
 
+## Personal Notes (fork)
+
+- Default format preference: `ppt169` (16:9 widescreen) — this is what I use for all my presentations
+- I prefer `curl_cffi` for web scraping whenever available; install via `pip install curl_cffi` before running web_to_md tasks
+
 ## Common Commands
 
 ```bash
@@ -40,10 +45,5 @@ python3 skills/ppt-master/scripts/project_manager.py validate <project_path>
 
 # Image tools
 python3 skills/ppt-master/scripts/analyze_images.py <project_path>/images
-python3 skills/ppt-master/scripts/optimize_images.py <project_path>/images   # personal note: run this before export to reduce file size
+python3 skills/ppt-master/scrip
 ```
-
-## Personal Notes
-
-- I primarily use this for 16:9 presentations (`--format ppt169`); the `ppt43` format is rarely needed in my workflow.
-- When working with Chinese/WeChat article URLs, always prefer the Python `web_to_md.py` script over the Node.js fallback — curl_cffi handles those pages much more reliably.
