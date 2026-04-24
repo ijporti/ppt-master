@@ -40,10 +40,10 @@ python3 skills/ppt-master/scripts/project_manager.py validate <project_path>
 
 # Image tools
 python3 skills/ppt-master/scripts/analyze_images.py <project_path>/images
-python3 skills/ppt-master/scripts/compress_images.py <project_path>/images  # optional: reduce file size before export
+python3 skills/ppt-master/scripts/optimize_images.py <project_path>/images   # personal note: run this before export to reduce file size
 ```
 
 ## Personal Notes
 
-- I primarily use this for 16:9 slides (`--format ppt169`); widescreen format works best for my use case.
-- Prefer running `validate` after `import-sources` to catch missing assets early.
+- I primarily use this for 16:9 presentations (`--format ppt169`); the `ppt43` format is rarely needed in my workflow.
+- When working with Chinese/WeChat article URLs, always prefer the Python `web_to_md.py` script over the Node.js fallback — curl_cffi handles those pages much more reliably.
