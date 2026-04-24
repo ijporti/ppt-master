@@ -27,6 +27,7 @@ PPT Master is an AI-driven presentation generation system. Through multi-role co
 
 - Default format preference: `ppt169` (16:9 widescreen) — this is what I use for all my presentations
 - I prefer `curl_cffi` for web scraping whenever available; install via `pip install curl_cffi` before running web_to_md tasks
+- Default slide count preference: aim for **10–15 slides** per presentation unless the source material clearly warrants more; avoid padding with filler slides
 
 ## Common Commands
 
@@ -40,10 +41,5 @@ node skills/ppt-master/scripts/source_to_md/web_to_md.cjs <URL>       # fallback
 
 # Project management
 python3 skills/ppt-master/scripts/project_manager.py init <project_name> --format ppt169
-python3 skills/ppt-master/scripts/project_manager.py import-sources <project_path> <source_files_or_URLs...> --move
-python3 skills/ppt-master/scripts/project_manager.py validate <project_path>
-
-# Image tools
-python3 skills/ppt-master/scripts/analyze_images.py <project_path>/images
-python3 skills/ppt-master/scrip
+python3 skills/ppt-master/scripts/project_manager.py impo
 ```
