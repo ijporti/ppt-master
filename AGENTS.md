@@ -31,12 +31,13 @@ PPT Master is an AI-driven presentation generation system. Through multi-role co
 - Default language: always generate slide content in **English** unless the source document is in another language or the user explicitly requests otherwise
 - Preferred color theme: lean toward clean, minimal palettes (white/light gray backgrounds, single accent color) rather than dark or heavily styled themes
 - Preferred font: use **Inter** or **Helvetica Neue** for body text when available; fall back to Calibri — avoid decorative or serif fonts for slide body copy
+- Preferred accent color: `#2563EB` (a clean blue) — use as the single accent color in minimal palette themes unless the source material suggests otherwise
+- Bullet point style: prefer concise bullet points (max ~10 words each); avoid full sentences on slides — keep it punchy and scannable
 
 ## Common Commands
 
 ```bash
 # Source content conversion
 python3 skills/ppt-master/scripts/source_to_md/pdf_to_md.py <PDF_file>
-python3 skills/ppt-master/scripts/source_to_md/doc_to_md.py <DOCX_or_other_file>   # Native: .docx/.html/.epub/.ipynb; pandoc fallback: .doc/.odt/.rtf/.tex/.rst/.org/.typ
-python3 skill
+python3 skills/ppt-master
 ```
