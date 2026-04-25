@@ -63,6 +63,8 @@ All configuration is done via the `.env` file. See [`.env.example`](.env.example
 
 > **Personal note:** I set `THEME` to `dark` as my default — looks much better for the tech/engineering decks I usually create. Change it back to `default` if you prefer the light theme.
 
+> **Personal note:** I set `MODEL_NAME` to `gpt-4o-mini` in my `.env` — it's significantly cheaper and fast enough for most decks. Only switch to `gpt-4o` if you need more nuanced content on complex topics.
+
 ## Project Structure
 
 ```
@@ -96,11 +98,4 @@ curl -X POST http://localhost:7860/api/generate \
 Contributions are welcome! Please open an issue or submit a pull request.
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feat/my-feature`)
-3. Commit your changes (`git commit -m 'feat: add my feature'`)
-4. Push to the branch (`git push origin feat/my-feature`)
-5. Open a Pull Request
-
-## License
-
-MIT License — see [LICEN
+2. Create a feature branch (`git checkout -b feat/my-feat
