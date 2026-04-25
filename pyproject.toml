@@ -76,7 +76,8 @@ warn_unused_configs = true
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 asyncio_mode = "auto"
-addopts = "--cov=ppt_master --cov-report=term-missing"
+# Removed --cov flags so I can run tests quickly without coverage overhead locally
+addopts = "-v"
 
 [tool.coverage.run]
 source = ["src/ppt_master"]
