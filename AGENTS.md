@@ -30,6 +30,7 @@ PPT Master is an AI-driven presentation generation system. Through multi-role co
 - Default slide count preference: aim for **10–15 slides** per presentation unless the source material clearly warrants more; avoid padding with filler slides
 - Default language: always generate slide content in **English** unless the source document is in another language or the user explicitly requests otherwise
 - Preferred color theme: lean toward clean, minimal palettes (white/light gray backgrounds, single accent color) rather than dark or heavily styled themes
+- Preferred font: use **Inter** or **Helvetica Neue** for body text when available; fall back to Calibri — avoid decorative or serif fonts for slide body copy
 
 ## Common Commands
 
@@ -37,9 +38,5 @@ PPT Master is an AI-driven presentation generation system. Through multi-role co
 # Source content conversion
 python3 skills/ppt-master/scripts/source_to_md/pdf_to_md.py <PDF_file>
 python3 skills/ppt-master/scripts/source_to_md/doc_to_md.py <DOCX_or_other_file>   # Native: .docx/.html/.epub/.ipynb; pandoc fallback: .doc/.odt/.rtf/.tex/.rst/.org/.typ
-python3 skills/ppt-master/scripts/source_to_md/ppt_to_md.py <PPTX_file>
-python3 skills/ppt-master/scripts/source_to_md/web_to_md.py <URL>    # auto-uses curl_cffi if installed (covers WeChat etc.)
-node skills/ppt-master/scripts/source_to_md/web_to_md.cjs <URL>       # fallback only; use if curl_cffi is unavailable
-
-# Projec
+python3 skill
 ```
