@@ -65,6 +65,8 @@ All configuration is done via the `.env` file. See [`.env.example`](.env.example
 
 > **Personal note:** I set `MODEL_NAME` to `gpt-4o-mini` in my `.env` — it's significantly cheaper and fast enough for most decks. Only switch to `gpt-4o` if you need more nuanced content on complex topics.
 
+> **Personal note:** I set `OPENAI_API_BASE` to point at a local [Ollama](https://ollama.com) instance (`http://localhost:11434/v1`) when I want to run fully offline. Works well with `llama3` as the `MODEL_NAME` for quick drafts without burning API credits.
+
 ## Project Structure
 
 ```
@@ -90,12 +92,5 @@ ppt-master/
 ```bash
 curl -X POST http://localhost:7860/api/generate \
   -H "Content-Type: application/json" \
-  -d '{"prompt": "Introduction to Machine Learning", "slides": 10}'
+  -d '{"prompt": "Introduction to Mac
 ```
-
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request.
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feat/my-feat
