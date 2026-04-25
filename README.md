@@ -61,6 +61,8 @@ All configuration is done via the `.env` file. See [`.env.example`](.env.example
 
 > **Personal note:** I bumped `MAX_SLIDES` from `20` to `30` — the 20-slide cap was too restrictive for longer technical presentations I tend to generate.
 
+> **Personal note:** I set `THEME` to `dark` as my default — looks much better for the tech/engineering decks I usually create. Change it back to `default` if you prefer the light theme.
+
 ## Project Structure
 
 ```
@@ -101,4 +103,4 @@ Contributions are welcome! Please open an issue or submit a pull request.
 
 ## License
 
-MIT License — see [LICENSE](LICENSE) for details.
+MIT License — see [LICEN
