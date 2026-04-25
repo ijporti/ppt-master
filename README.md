@@ -67,6 +67,8 @@ All configuration is done via the `.env` file. See [`.env.example`](.env.example
 
 > **Personal note:** I set `OPENAI_API_BASE` to point at a local [Ollama](https://ollama.com) instance (`http://localhost:11434/v1`) when I want to run fully offline. Works well with `llama3` as the `MODEL_NAME` for quick drafts without burning API credits.
 
+> **Personal note:** I added a `SPEAKER_NOTES` env var (not in upstream yet) that, when set to `true`, instructs the generator to populate speaker notes on each slide. Really handy when I'm preparing a talk and want a rough script alongside the deck.
+
 ## Project Structure
 
 ```
@@ -82,15 +84,5 @@ ppt-master/
 │   └── helpers.py      # Shared utility functions
 ├── templates/          # PPTX template files
 ├── static/             # Static assets for the web UI
-├── tests/              # Unit and integration tests
-├── .env.example        # Environment variable reference
-└── requirements.txt    # Python dependencies
-```
-
-## API Usage
-
-```bash
-curl -X POST http://localhost:7860/api/generate \
-  -H "Content-Type: application/json" \
-  -d '{"prompt": "Introduction to Mac
+├── tests/              # Unit and integration test
 ```
